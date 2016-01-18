@@ -1,21 +1,28 @@
-package xyz.uabart.skazochnik.Objects;
+package xyz.uabart.skazochnik.objects;
 
-public class Book {
+import com.parse.ParseClassName;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
 
-    private String name;
-    private int imageSrc;
+@ParseClassName("Book")
+public class Book extends ParseObject{
 
-    public Book(String name, int imageSrc) {
-        this.name = name;
-        this.imageSrc = imageSrc;
+    public Book() {
     }
 
     public String getName() {
-        return name;
+        return getString("name");
     }
 
-    public int getImageSrc() {
-        return imageSrc;
+    public void setName(String name) {
+        put("name", name);
     }
 
+    public ParseFile getImageFile() {
+        return getParseFile("image");
+    }
+
+    public void setImageFile(ParseFile file) {
+        put("image", file);
+    }
 }

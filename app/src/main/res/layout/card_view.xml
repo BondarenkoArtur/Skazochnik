@@ -14,11 +14,11 @@
         card_view:cardElevation="4dp"
         card_view:cardCornerRadius="3dp">
 
-        <ImageView
+        <com.parse.ParseImageView
             android:id="@+id/book_image"
             android:layout_width="fill_parent"
             android:layout_height="150dp"
-            android:src="@drawable/image1"
+            android:src="@drawable/noimage"
             android:scaleType="fitXY"/>
 
         <TextView

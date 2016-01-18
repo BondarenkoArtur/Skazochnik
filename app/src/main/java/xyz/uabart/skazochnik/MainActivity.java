@@ -10,26 +10,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
+
 import xyz.uabart.skazochnik.adapter.TabsPagerFragmentAdapter;
+import xyz.uabart.skazochnik.objects.Book;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final int LAYOUT = R.layout.activity_main;
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    private boolean parseInitialized = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
-        setContentView(LAYOUT);
+        setContentView(R.layout.activity_main);
 
         initToolbar();
         initNavigationView();
         initTabs();
 
+        if (!parseInitialized) {
+            Parse.initialize(this, "jVA5tjbDeXBwANb8KYHYfh3z4ILLrMxAlsaPhbWb", "yW2HAMLTmbKGAn5eYJjXnkDToImhD0PLKzjO5CpN");
+            ParseAnalytics.trackAppOpenedInBackground(getIntent());
+            ParseObject.registerSubclass(Book.class);
+            parseInitialized = true;
+        }
     }
 
     private void initToolbar() {

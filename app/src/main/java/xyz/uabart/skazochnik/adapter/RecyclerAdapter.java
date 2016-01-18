@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import xyz.uabart.skazochnik.Objects.Book;
+import xyz.uabart.skazochnik.objects.Book;
 import xyz.uabart.skazochnik.R;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.BookViewHolder>{
@@ -34,7 +34,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.BookVi
     public void onBindViewHolder(BookViewHolder holder, int position) {
         bookViewHolder.name.setText(books.get(position).getName());
         bookViewHolder.age.setText(books.get(position).getName());
-        bookViewHolder.image.setImageResource(books.get(position).getImageSrc());
+//        bookViewHolder.image.setImageResource(books.get(position).getImageSrc());
     }
 
     @Override
